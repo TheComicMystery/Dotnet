@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система відгуків</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.squarespace-cdn.com/content/v1/61e5d70137920250b151c77b/111c92e0-464f-46c6-8f90-606da99411ff/IMG_8352.JPG') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            animation: fadeIn 1s ease;
+            margin: 40px auto;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            color: #2c3e50;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            padding: 25px;
+            transition: transform 0.3s;
+        }
+
+            .card:hover {
+                transform: scale(1.02);
+            }
+
+        .btn-primary {
+            background-color: #3498db;
+            border-color: #2980b9;
+            transition: background-color 0.3s, transform 0.2s;
+            border-radius: 50px;
+            padding: 12px 24px;
+            color: white;
+            font-weight: 600;
+        }
+
+            .btn-primary:hover {
+                background-color: #2980b9;
+                transform: translateY(-2px);
+            }
+
+        .home-button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+            .home-button:hover {
+                background-color: #27ae60;
+                transform: translateY(-2px);
+                color: white;
+                text-decoration: none;
+            }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .pagination {
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            .pagination .page-item .page-link {
+                color: #3498db;
+                background-color: white;
+                border: 1px solid #3498db;
+                transition: all 0.3s;
+                border-radius: 50px;
+                padding: 10px 16px;
+                margin: 0 5px;
+            }
+
+            .pagination .page-item.active .page-link {
+                background-color: #3498db;
+                color: white;
+            }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+        }
+
+        .form-control::placeholder {
+            color: #aaa;
+            font-weight: normal;
+        }
+
+        .form-control:focus::placeholder {
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Залишити відгук</h1>
+        <div class="card">
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="title">Заголовок</label>
+                    <input type="text" class="form-control" id="title" placeholder="Опишіть ваші враження" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">Текст відгуку</label>
+                    <textarea class="form-control" id="content" rows="5" placeholder="Поділіться детальніше вашими враженнями та емоціями від фестивалю" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Оцінка (1-5)</label>
+                    <input type="number" class="form-control" id="rating" min="1" max="5" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Відправити Ваш відгук</button>
+            </form>
+        </div>
+
+        <h2>Попередні відгуки</h2>
+        <div id="reviews"></div>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination" id="pagination"></ul>
+        </nav>
+
+        <div class="footer">
+            <a href="http://localhost:7002/" class="home-button" onclick="handleHomeClick(event)">На головну</a>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const pageSize = 10;
+
+        function handleHomeClick(event) {
+            event.preventDefault();
+            const newWindow = window.open('http://localhost:7002/', '_blank');
+            setTimeout(() => {
+                try {
+                    window.close();
+                } catch (e) {
+                    window.location.href = 'http://localhost:7002/';
+                }
+            }, 100);
+        }
+
+        document.getElementById('reviewForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            try {
+                const response = await fetch('api/review', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        title: document.getElementById('title').value,
+                        content: document.getElementById('content').value,
+                        rating: document.getElementById('rating').value
+                    })
+                });
+
+                if (response.ok) {
+                    this.reset();
+                    loadReviews();
+                } else {
+                    throw new Error('Помилка');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+
+        async function loadReviews() {
+            try {
+                const response = await fetch(`api/review?pageNumber=${currentPage}&pageSize=${pageSize}`);
+                const reviews = await response.json();
+
+                const reviewsContainer = document.getElementById('reviews');
+                reviewsContainer.innerHTML = reviews.map(review => `
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${review.title} (${review.rating}⭐)</h5>
+                                        <p class="card-text">${review.content}</p>
+                                        <p class="card-text"><small class="text-muted">Опубліковано: ${new Date(review.dateCreated).toLocaleString('uk-UA')}</small></p>
+                                    </div>
+                                </div>
+                            `).join('');
+
+                const countResponse = await fetch('api/review/count');
+                const totalReviews = await countResponse.json();
+                updatePagination(totalReviews);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        function updatePagination(totalReviews) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            const pageCount = Math.ceil(totalReviews / pageSize);
+            for (let i = 1; i <= pageCount; i++) {
+                const li = document.createElement('li');
+                li.className = `page-item ${currentPage === i ? 'active' : ''}`;
+                li.innerHTML = `<a class="page-link" href="#" onclick="changePage(${i}); return false;">${i}</a>`;
+                pagination.appendChild(li);
+            }
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            loadReviews();
+        }
+
+        loadReviews();
+    </script>
+</body>
+</html>

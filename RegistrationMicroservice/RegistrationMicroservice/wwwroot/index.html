@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сторінка реєстрації</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://gagaru.club/uploads/posts/2023-02/thumbs/1676110202_gagaru-club-p-krasivie-shari-oboi-67.jpg') no-repeat center center fixed;
+            background-size: cover;
+            animation: backgroundZoom 30s ease infinite;
+        }
+
+        @keyframes backgroundZoom {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 800;
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+            input:focus {
+                border-color: #7986cb;
+            }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: #297fb8;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+            button:hover {
+                background-color: #4a8bb1;
+            }
+
+        #message {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            animation: scaleIcon 0.5s ease-in-out;
+        }
+
+        @keyframes scaleIcon {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #message i {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        #message span {
+            color: #4CAF50;
+        }
+
+        .extra-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+            .extra-buttons a {
+                background-color: #297fb8;
+                width: 48%;
+                padding: 10px;
+                text-align: center;
+                color: white;
+                border-radius: 30px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                text-decoration: none;
+            }
+
+                .extra-buttons a:hover {
+                    background-color: #4a8bb1;
+                }
+
+                .extra-buttons a:active {
+                    background-color: #2b6f8c;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Зареєструватись</h1>
+        <form id="registrationForm">
+            <input type="text" id="username" placeholder="Ім'я користувача" required>
+            <input type="email" id="email" placeholder="Електронна пошта" required>
+            <input type="password" id="password" placeholder="Пароль" required minlength="6">
+            <button type="submit">Зареєструватись</button>
+        </form>
+        <p id="message"></p>
+
+        <div class="extra-buttons">
+            <a id="mainPageBtn" href="http://localhost:7002/#" target="_self">
+                Перейти на головну
+            </a>
+            <a id="reviewsPageBtn" href="https://localhost:44339/index.html" target="_self">
+                Перейти до відгуків
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            document.getElementById('message').textContent = '';
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (!username || !email || !password) {
+                document.getElementById('message').textContent = 'Будь ласка, заповніть всі поля.';
+                return;
+            }
+
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('message').textContent = 'Будь ласка, введіть правильну електронну пошту.';
+                return;
+            }
+
+            const user = { username, email, password };
+
+            try {
+                const response = await fetch('http://localhost:61318/api/registration/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(user),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('message').innerHTML = `<i class="fas fa-check-circle"></i><span>Реєстрація успішна!</span>`;
+                } else {
+                    document.getElementById('message').textContent = data.message || 'Сталася помилка при реєстрації.';
+                }
+            } catch (error) {
+                document.getElementById('message').textContent = 'Сталася помилка при з\'єднанні з сервером.';
+            }
+        });
+    </script>
+</body>
+</html>
+

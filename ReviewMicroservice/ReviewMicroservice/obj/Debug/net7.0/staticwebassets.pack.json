@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\script.js",
+      "PackagePath": "staticwebassets\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\style.css",
+      "PackagePath": "staticwebassets\\style.css"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.ReviewMicroservice.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.ReviewMicroservice.props",
+      "PackagePath": "build\\ReviewMicroservice.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.ReviewMicroservice.props",
+      "PackagePath": "buildMultiTargeting\\ReviewMicroservice.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.ReviewMicroservice.props",
+      "PackagePath": "buildTransitive\\ReviewMicroservice.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

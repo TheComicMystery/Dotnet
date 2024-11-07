@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "HrEoaWR1SBoQLfAYv/DM8VqSgolx8qPzz1+dAjrbs5w=",
+  "Source": "RegistrationMicroservice",
+  "BasePath": "_content/RegistrationMicroservice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "RegistrationMicroservice\\wwwroot",
+      "Source": "RegistrationMicroservice",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\",
+      "BasePath": "_content/RegistrationMicroservice",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\index.html",
+      "SourceId": "RegistrationMicroservice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\",
+      "BasePath": "_content/RegistrationMicroservice",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\script.js",
+      "SourceId": "RegistrationMicroservice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\",
+      "BasePath": "_content/RegistrationMicroservice",
+      "RelativePath": "script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\script.js"
+    },
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\style.css",
+      "SourceId": "RegistrationMicroservice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\",
+      "BasePath": "_content/RegistrationMicroservice",
+      "RelativePath": "style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\style.css"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "Version": 1,
+  "Hash": "8jpBUTlALVVGXiCHsLwJXqR0Aouy50HC1MB6l+h8mCk=",
+  "Source": "ReviewMicroservice",
+  "BasePath": "_content/ReviewMicroservice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\RegistrationMicroservice.csproj",
+      "Version": 2,
+      "Source": "RegistrationMicroservice",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [
+    {
+      "Name": "RegistrationMicroservice\\wwwroot",
+      "Source": "RegistrationMicroservice",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\",
+      "BasePath": "_content/RegistrationMicroservice",
+      "Pattern": "**"
+    },
+    {
+      "Name": "ReviewMicroservice\\wwwroot",
+      "Source": "ReviewMicroservice",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\",
+      "BasePath": "_content/ReviewMicroservice",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\index.html",
+      "SourceId": "RegistrationMicroservice",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\",
+      "BasePath": "_content/RegistrationMicroservice",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\script.js",
+      "SourceId": "RegistrationMicroservice",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\",
+      "BasePath": "_content/RegistrationMicroservice",
+      "RelativePath": "script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\script.js"
+    },
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\style.css",
+      "SourceId": "RegistrationMicroservice",
+      "SourceType": "Project",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\RegistrationMicroservice\\RegistrationMicroservice\\wwwroot\\",
+      "BasePath": "_content/RegistrationMicroservice",
+      "RelativePath": "style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\style.css"
+    },
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\index.html",
+      "SourceId": "ReviewMicroservice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\",
+      "BasePath": "_content/ReviewMicroservice",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\script.js",
+      "SourceId": "ReviewMicroservice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\",
+      "BasePath": "_content/ReviewMicroservice",
+      "RelativePath": "script.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\script.js"
+    },
+    {
+      "Identity": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\style.css",
+      "SourceId": "ReviewMicroservice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\igprc\\source\\repos\\ReviewMicroservice\\ReviewMicroservice\\wwwroot\\",
+      "BasePath": "_content/ReviewMicroservice",
+      "RelativePath": "style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\style.css"
+    }
+  ]
+}
